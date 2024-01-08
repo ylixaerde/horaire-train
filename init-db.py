@@ -5,10 +5,10 @@ class App:
     def __init__(self):
         self.file_path = os.path.realpath(__file__)
         self.work_dir = os.path.dirname(self.file_path)
-        print(f'Chemin du dossier script : {self.work_dir}')
-        print(f'Chemin de la db : {self.work_dir}/data.db')
+        # print(f'Chemin du dossier script : {self.work_dir}')
+        # print(f'Chemin de la db : {self.work_dir}/data.db')
         self.db_name = f'{self.work_dir}/data.db'
-        self.sql_init_script = f'{self.work_dir}/horaire-train.sql'
+        self.sql_init_script = f'{self.work_dir}/init-horaire-train.sql'
 
     def fn_init_db(self):
         sqliteConnection = None
