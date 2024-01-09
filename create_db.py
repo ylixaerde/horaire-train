@@ -8,16 +8,16 @@ class App:
         # print(f'Chemin du dossier script : {self.work_dir}')
         # print(f'Chemin de la db : {self.work_dir}/data.db')
         self.db_name = f'{self.work_dir}/data.db'
-        self.sql_init_script = f'{self.work_dir}/init-horaire-train.sql'
+        self.sql_create_script = f'{self.work_dir}/create-horaire-train.sql'
 
-    def fn_init_db(self):
+    def fn_create_db(self):
         sqliteConnection = None
         try:            
             with sqlite3.connect(self.db_name, timeout=10) as sqliteConnection:
                 print(f"Connected to the database {self.db_name}")
                 cursor = sqliteConnection.cursor()
                 try:
-                    with open(self.sql_init_script, "r") as sqlite_file:
+                    with open(self.sql_create_script, "r") as sqlite_file:
                         try:
                             sql_script = sqlite_file.read()
                         except Exception as error:
@@ -43,6 +43,6 @@ class App:
                 sqliteConnection.close()
                 print("The SQLite connection is closed")
 
-
-app = App()
-app.fn_init_db()
+if __name__ == "__main__":
+    app = App()
+    app.fn_create_db()

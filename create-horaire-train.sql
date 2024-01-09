@@ -1,0 +1,2 @@
+INSERT INTO TRAIN (code)
+VALUES ('AZ0934');
