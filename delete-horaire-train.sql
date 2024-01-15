@@ -1,1 +1,1 @@
-DELETE FROM TRAIN WHERE train_id = 2;
+DELETE FROM TRAIN WHERE train_id = 4;
