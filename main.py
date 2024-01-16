@@ -40,7 +40,9 @@ def fn_menu(list_menu):
             return True
         case 2:
             create_app = create_db.App()
-            create_app.fn_create_db()
+            boucle = True
+            while boucle:
+                boucle = create_app.fn_create_db()
             return True
         case 3:
             read_app = read_db.App()

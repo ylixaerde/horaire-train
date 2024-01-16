@@ -47,11 +47,13 @@ class App:
         print(f'\n----Menu - Projet Horaire train----')
         for item in self.list_menu:
             print(f'{item}')
-        q_status = "Entrer votre choix (1-6) : "
+        q_status = "Entrer votre choix (1-2) : "
         e_status = "\nErreur : Caractères invalides\n"
         status = int(self.fn_question_int(q_status, e_status))
         match status:
             case 1:
+                read_app = read_db.App()
+                read_app.fn_read_db()
                 self.fn_create_train_code()
                 return True
             case 2:
@@ -64,7 +66,7 @@ class App:
     def fn_create_db(self):
         try:
             self.fn_init_menu()
-            self.fn_menu()
+            boucle = self.fn_menu()
         except Exception as error:
             print(f"{error}")
 
@@ -102,6 +104,7 @@ class App:
             if sqliteConnection:
                 sqliteConnection.close()
                 print("The SQLite connection is closed")
+            return boucle
 
 if __name__ == "__main__":
     app = App()
