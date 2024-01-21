@@ -52,8 +52,6 @@ class App:
         status = int(self.fn_question_int(q_status, e_status))
         match status:
             case 1:
-                read_app = read_db.App()
-                read_app.fn_read_db()
                 self.fn_create_train_code()
                 return True
             case 2:
