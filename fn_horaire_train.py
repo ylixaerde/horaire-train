@@ -81,7 +81,7 @@ class InitDB(MainDB):
                             return
                 except Exception as error:
                     print(f"Error while opening the SQL file: {error}")
-                    return                
+                    return             
                 try:
                     cursor.executescript(sql_script)
                     print("SQLite script executed successfully")
